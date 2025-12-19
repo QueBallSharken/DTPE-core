@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DTPE Persona Profile",
+  "description": "Schema defining a structured, user-controlled persona profile for DTPE-core.",
+  "type": "object",
+  "required": [
+    "identity",
+    "values",
+    "communication_style",
+    "boundaries"
+  ],
+  "properties": {
+    "identity": {
+      "type": "object",
+      "description": "High-level persona identity descriptors.",
+      "required": ["name", "purpose"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Human-readable identifier for the persona."
+        },
+        "purpose": {
+          "type": "string",
+          "description": "The intended advisory role of the persona."
+        }
+      },
+      "additionalProperties": false
+    },
+    "values": {
+      "type": "array",
+      "description": "Core values that guide advisory responses.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "communication_style": {
+      "type": "object",
+      "description": "Tone and style preferences for advisory output.",
+      "required": ["tone", "verbosity"],
+      "properties": {
+        "tone": {
+          "type": "string",
+          "description": "General tone of responses (e.g., calm, direct, reflective)."
+        },
+        "verbosity": {
+          "type": "string",
+          "enum": ["concise", "balanced", "detailed"],
+          "description": "Preferred response length."
+        }
+      },
+      "additionalProperties": false
+    },
+    "boundaries": {
+      "type": "object",
+      "description": "Explicit limits on persona behavior.",
+      "required": ["cannot_do"],
+      "properties": {
+        "cannot_do": {
+          "type": "array",
+          "description": "List of prohibited behaviors or actions.",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
