@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Digital Identity – Mock Schema",
+  "description": "Mock-only schema demonstrating how a digital persona or identity could be represented in a structured, transparent, and human-controlled format. No real data. No execution. No automation.",
+  "type": "object",
+  "properties": {
+    "identity_id": {
+      "type": "string",
+      "description": "Mock identifier for demonstration purposes only."
+    },
+    "owner_control": {
+      "type": "boolean",
+      "description": "Affirms that the human owner retains explicit and final control."
+    },
+    "intent": {
+      "type": "string",
+      "description": "High-level declared purpose of the identity representation."
+    },
+    "traits": {
+      "type": "object",
+      "description": "Optional descriptive traits defined by the owner.",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "boundaries": {
+      "type": "array",
+      "description": "Explicit constraints describing what the identity must not do.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["mock", "research-only"],
+      "description": "Operational status. This schema supports mock and research-only use exclusively."
+    }
+  },
+  "required": [
+    "identity_id",
+    "owner_control",
+    "intent",
+    "status"
+  ],
+  "additionalProperties": false
+}
